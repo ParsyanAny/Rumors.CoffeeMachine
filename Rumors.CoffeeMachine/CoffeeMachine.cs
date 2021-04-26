@@ -22,14 +22,5 @@ namespace Rumors.CoffeeMachine
             _state.SetContext(this);
         }
         public void MakeCoffee() => _state.MakeCoffee();
-        public void PrintCoffees()
-        {
-            foreach (var item in Coffees)
-            {
-                Console.WriteLine($"{item.Id}) {item.Name} {item.Price}$ " +
-                    $"Sugar/Water/Coffee {item.SugarPortion}:{item.WaterPortion}:{item.CoffeePortion}");
-                Console.WriteLine("--------------------------------------");
-            }
-        }
     }
 }

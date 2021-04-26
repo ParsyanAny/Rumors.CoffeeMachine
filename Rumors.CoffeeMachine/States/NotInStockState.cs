@@ -11,7 +11,7 @@ namespace Rumors.CoffeeMachine.States
             if (!InStock(c))
             {
                 _context.TransitionTo(new NotSelectedState());
-                Console.WriteLine("Sorry, we don't have this one, but you can select other coffee");
+                Console.WriteLine("Sorry, we don't have this one, but you can select other coffee \nEnter 0 for get back money");
             }
             else
             {

@@ -1,8 +1,4 @@
-﻿using Newtonsoft.Json;
-using Rumors.CoffeeMachine.States;
-using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using Rumors.CoffeeMachine.States;
 
 namespace Rumors.CoffeeMachine
 {
@@ -10,10 +6,10 @@ namespace Rumors.CoffeeMachine
     {
         static void Main(string[] args)
         {
-            //Create Coffees Json File
+            //Create CoffeeList Json File
             JsonManager.JsonCoffeeListMaker();
-            // Deserialize Json Coffees File 
-            var cofees = JsonManager.DeserializeCoffeeList(); 
+            // Deserialize Json CoffeeList File 
+            var coffee = JsonManager.DeserializeCoffeeList(); 
 
             // Create Storage Json File
             JsonManager.JsonStorageMaker(new Storage() {Water = 10, Sugar = 5, Coffee = 1 }); 
@@ -21,7 +17,7 @@ namespace Rumors.CoffeeMachine
             var storage = JsonManager.DeserializeStorage();  
 
 
-            var coffeeMachine = new CoffeeMachine(new NotEnoughMoneyState(), cofees, storage);
+            var coffeeMachine = new CoffeeMachine(new NotEnoughMoneyState(), coffee, storage);
             while (true)
             {
                 coffeeMachine.MakeCoffee();

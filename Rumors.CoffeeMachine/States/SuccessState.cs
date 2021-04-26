@@ -14,21 +14,18 @@ namespace Rumors.CoffeeMachine.States
 
                 if (select == "0")
                 {
-                    Console.WriteLine($"Here is your change! {_balance}$! \n Thank you!");
-                    _balance = 0;
-                    _context.TransitionTo(new NotEnoughMoneyState());
+                    Console.WriteLine($"Here is your change! {_balance}$!");
+                    ClearHistory();
                 }
                 else if (select == "1")
-                {
                     _context.TransitionTo(new NotSelectedState());
-                }
                 else
-                    Console.WriteLine("Please enter currect number");
+                    Console.WriteLine("Please enter valid number");
             }
             else
             {
                 Console.WriteLine("Your coffee is ready!");
-                _context.TransitionTo(new NotEnoughMoneyState());
+                ClearHistory();
             }
         }
     }
